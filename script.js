@@ -34,15 +34,16 @@ const storiesjson = [
 const stories = document.querySelector(".stories");
 const story = document.querySelector(".story");
 
-storiesjson.forEach((story, index) => {
-    stories.innerHTML += `<img src="${story.dp}" alt="${index}" class="dp" />`;
+storiesjson.forEach((ele, index) => {
+    stories.innerHTML += `<img src=${ele.dp} alt=${index} />`;
 });
 
 stories.addEventListener("click", (e) => {
+    console.log(storiesjson[e.target.alt].profile);
     story.style.backgroundImage = `url(${storiesjson[e.target.alt].profile})`;
     story.style.display = "initial";
 
     setTimeout(() => {
         story.style.display = "none";
-    }, 3000);
+    }, 2000);
 });
